@@ -22,3 +22,11 @@ dev_dependencies:
   lints: ^2.1.1
   test: ^1.17.9
   web_socket_channel: ^2.2.0
+
+# override the storage_client to C:\Dart-Package\supabase-flutter\packages\storage_client
+dependency_overrides:
+  storage_client:
+    git:
+      url: https://github.com/Vedsaga/supabase-flutter.git
+      ref: main
+      path: packages/storage_client
