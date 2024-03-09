@@ -4,6 +4,7 @@ version: 2.3.4
 homepage: 'https://supabase.com'
 repository: 'https://github.com/supabase/supabase-flutter/tree/main/packages/supabase_flutter'
 documentation: 'https://supabase.com/docs/reference/dart/introduction'
+publish_to: none
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
@@ -17,7 +18,11 @@ dependencies:
     sdk: flutter
   http: '>=0.13.4 <2.0.0'
   meta: ^1.7.0
-  supabase: ^2.0.8
+  supabase:
+    git:
+      url: https://github.com/supabase/supabase-flutter.git
+      ref: main
+      path: packages/supabase
   url_launcher: ^6.1.2
   path_provider: ^2.0.0
   shared_preferences: ^2.0.0
