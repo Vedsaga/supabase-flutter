@@ -43,7 +43,7 @@ class StorageFileApi {
   /// [retryAttempts] overrides the retryAttempts parameter set across the storage client.
   ///
   /// You can pass a [retryController] and call `cancel()` to cancel the retry attempts.
-  Future<String> upload(
+  Future<UploadResponse> upload(
     String path,
     File file, {
     FileOptions fileOptions = const FileOptions(),
@@ -62,7 +62,7 @@ class StorageFileApi {
       retryController: retryController,
     );
 
-    return (response as Map)['Key'] as String;
+    return UploadResponse.fromJson(response);
   }
 
   /// Uploads a binary file to an existing bucket. Can be used on the web.
@@ -78,7 +78,7 @@ class StorageFileApi {
   /// [retryAttempts] overrides the retryAttempts parameter set across the storage client.
   ///
   /// You can pass a [retryController] and call `cancel()` to cancel the retry attempts.
-  Future<String> uploadBinary(
+  Future<UploadResponse> uploadBinary(
     String path,
     Uint8List data, {
     FileOptions fileOptions = const FileOptions(),
@@ -97,7 +97,7 @@ class StorageFileApi {
       retryController: retryController,
     );
 
-    return (response as Map)['Key'] as String;
+    return UploadResponse.fromJson(response);
   }
 
   /// Upload a file with a token generated from `createUploadSignedUrl`.
